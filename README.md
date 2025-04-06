@@ -1,4 +1,4 @@
-# FlexChunk: Enabling 100M×100M Out-of-Core SpMV (1.5 min, 1.9 GB RAM) with Near-Linear Scaling
+# FlexChunk: Enabling 100M×100M Out-of-Core SpMV (~1.8 min, ~1.7 GB RAM) with Near-Linear Scaling
 
 FlexChunk is an algorithm for processing large sparse matrices that exceed available RAM. By dividing the matrix into manageable horizontal chunks and processing them sequentially, FlexChunk enables sparse matrix-vector multiplication (SpMV) operations on matrices with dimensions up to 100M×100M using minimal memory.
 
@@ -7,13 +7,13 @@ FlexChunk is an algorithm for processing large sparse matrices that exceed avail
 - **Out-of-Core Processing**: Operates on matrices too large to fit in RAM
 - **Near-Linear Time Complexity**: Approximately O(N) rather than the theoretical O(N²)
 - **Linear Memory Consumption**: Memory usage scales linearly with matrix size
-- **Large Matrix Support**: Processes 100M×100M matrices in ~1.5 minutes with only ~1.9 GB RAM
+- **Large Matrix Support**: Processes 100M×100M matrices in ~1.8 minutes with only ~1.7 GB RAM
 - **Disk I/O Optimization**: Faster data loading compared to traditional approaches
 
 ## Performance Highlights
 
 - **Time Scaling**: The total execution time scales almost linearly with matrix dimension
-- **Memory Efficiency**: Peak RAM usage remains low (1.9 GB for 100M×100M matrix)
+- **Memory Efficiency**: Peak RAM usage remains low (1.7 GB for 100M×100M matrix)
 - **Trade-off**: While SciPy offers faster computation for in-memory matrices, FlexChunk performs better when disk I/O is involved or when matrix size exceeds RAM
 
 ### Performance Graphs
@@ -92,7 +92,7 @@ Our experiments demonstrate that FlexChunk achieves effective performance on ext
 
 | Matrix Size | Time | Peak RAM Usage | Theoretical Full Matrix Size |
 |------------|------|----------------|------------------------------|
-| 100M × 100M | ~1.5 minutes | ~1.9 GB | ~8,000,000 GB (8 PB) |
+| 100M × 100M | ~1.8 minutes | ~1.7 GB | ~8,000,000 GB (8 PB) |
 
 The empirical complexity follows a near-linear relationship `time ∝ O(N)`, which is better than the theoretical O(N²) complexity for matrix operations of this scale.
 
